@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Mathematische Operatoren</title>
+    </head>
+
+    <style>
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .calculator {
+            padding: 20px;
+            border: 1px solid #eee;
+        }
+
+        .actions {
+            margin: 10px 0;
+        }
+        button {
+            margin: 10px;
+        }
+        .result {
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+        .result span {
+            margin-right: 10px;
+            font-weight: normal;
+        }
+    </style>
+
+    <body>
+        <div class="calculator">
+            <div class="input">
+                <span>A:</span>
+                <input type="number" id="a" value="10" />
+                <span>B:</span>
+                <input type="number" id="b" value="2" />
+            </div>
+
+            <div class="actions">
+                <button onclick="add()">Addieren</button>
+                <button onclick="subtract()">Subtrahieren</button>
+                <button onclick="multiply()">Multiplizieren</button>
+                <button onclick="divide()">Dividieren</button>
+                <button onclick="modulo()">Modulo</button>
+            </div>
+
+            <div class="result">
+                <span>Ergebnis:</span>
+                <div id="result"></div>
+            </div>
+        </div>
+    </body>
+
+    <script>
+        function add() {
+            /* not implemented */
+            const a = document.getElementById("a").value;
+            const b = document.getElementById("b").value;
+            const result = parseInt(a) + parseInt(b);
+
+            document.getElementById(
+                "result"
+            ).innerHTML = `${a} + ${b} = ${result}`;
+        }
+
+        function subtract() {
+            /* not implemented */
+            const a = document.getElementById("a").value;
+            const b = document.getElementById("b").value;
+            const result = parseInt(a) - parseInt(b);
+
+            document.getElementById(
+                "result"
+            ).innerHTML = `${a} - ${b} = ${result}`;
+        }
+
+        function multiply() {
+            /* not implemented */
+            const a = document.getElementById("a").value;
+            const b = document.getElementById("b").value;
+            const result = parseInt(a) * parseInt(b);
+
+            document.getElementById(
+                "result"
+            ).innerHTML = `${a} * ${b} = ${result}`;
+        }
+
+        function divide() {
+            /* not implemented */
+            const a = document.getElementById("a").value;
+            const b = document.getElementById("b").value;
+            const result = parseInt(a) / parseInt(b);
+
+            document.getElementById(
+                "result"
+            ).innerHTML = `${a} : ${b} = ${result}`;
+        }
+
+        function modulo() {
+            /* not implemented */
+            const a = document.getElementById("a").value;
+            const b = document.getElementById("b").value;
+            const result = parseInt(a) % parseInt(b);
+
+            document.getElementById(
+                "result"
+            ).innerHTML = `${a} % ${b} = ${result}`;
+        }
+    </script>
+</html>

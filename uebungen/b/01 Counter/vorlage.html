@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="utf-8" />
+    <title>Counter</title>
+
+    <style>
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .wrapper {
+            padding: 20px;
+            border: 1px solid #eee;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .actions {
+            margin: 10px 0;
+        }
+        button {
+            margin: 10px;
+        }
+        .result {
+            display: flex;
+            align-items: center;
+        }
+        .result span {
+            margin-right: 10px;
+            font-weight: normal;
+        }
+    </style>
+
+    <body>
+        <div class="wrapper">
+            <p id="count"></p>
+            <p id="clicks"></p>
+            <div class="actions">
+                <button onclick="plus()">Plus</button>
+                <button onclick="minus()">Minus</button>
+                <button onclick="reset()">Reset</button>
+            </div>
+
+            <div class="result">
+                Ergebnis wird in der Developer-Konsole ausgegeben!
+            </div>
+        </div>
+    </body>
+
+    <script>
+        let counter = 0;
+        let clicks = 0;
+        document.getElementById("count").innerHTML = `Count : ${counter}`;
+        document.getElementById("clicks").innerHTML = ` Klicks: ${clicks}`;
+
+        function plus() {
+            /* not implemented */
+            counter++;
+            clicks++;
+            document.getElementById("count").innerHTML = `Count : ${counter}`;
+            document.getElementById("clicks").innerHTML = ` Klicks: ${clicks}`;
+            log();
+        }
+
+        function minus() {
+            /* not implemented */
+            counter--;
+            clicks++;
+            document.getElementById("count").innerHTML = `Count : ${counter}`;
+            document.getElementById("clicks").innerHTML = ` Klicks: ${clicks}`;
+            log();
+        }
+
+        function reset() {
+            /* not implemented */
+            counter = 0;
+            clicks++;
+            document.getElementById("count").innerHTML = `Count : ${counter}`;
+            document.getElementById("clicks").innerHTML = ` Klicks: ${clicks}`;
+            log();
+        }
+
+        function log() {
+            /* not implemented */
+            console.log(counter);
+        }
+    </script>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Switch, in Case Corona</title>
+    </head>
+
+    <style>
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .wrapper {
+            padding: 20px;
+            border: 1px solid #eee;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .input-wrapper {
+            display: flex;
+            flex-direction: row;
+        }
+    </style>
+
+    <body>
+        <div class="wrapper">
+            <p>
+                Was möchtest du einkaufen? Toilettenpapier, Eier, Schokolade,
+                Äpfel oder Birnen?
+            </p>
+            <div class="input-wrapper">
+                <input id="myInput" type="text" />
+                <button onclick="adviceFunction()">kaufen</button>
+            </div>
+
+            <p id="output"></p>
+        </div>
+    </body>
+
+    <script>
+        function adviceFunction() {
+            const item = document.getElementById("myInput").value;
+
+            switch (item) {
+                case "Toilettenpapier":
+                    document.getElementById("output").innerHTML =
+                        "Sorry, keine Chance!";
+                    break;
+                case "Eier":
+                    document.getElementById("output").innerHTML =
+                        "Versuchs morgen nochmal";
+                    break;
+                case "Schokolade":
+                    document.getElementById("output").innerHTML =
+                        "Iss nicht aus Langeweile!";
+                    break;
+                case "Äpfel":
+                case "Birnen":
+                    document.getElementById("output").innerHTML =
+                        "Gute Wahl :)";
+                    break;
+
+                default:
+                    document.getElementById("output").innerHTML =
+                        "Haben wir nicht, bleib Zuhause!";
+                    break;
+            }
+        }
+    </script>
+</html>

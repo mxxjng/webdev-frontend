@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <button onclick="getDate()">get Years</button>
+        <p id="text"></p>
+    </body>
+    <script>
+        const date = new Date().getFullYear();
+        document.getElementById("text").innerHTML = `copyright Zeichen ${date}`;
+
+        function getDate() {
+            alert(`Es ist das Jahr ${date}`);
+        }
+    </script>
+</html>

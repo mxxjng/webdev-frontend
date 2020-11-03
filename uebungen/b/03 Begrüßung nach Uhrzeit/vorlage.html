@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Begrüßung nach Uhrzeit</title>
+    </head>
+    <style>
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .wrapper {
+            padding: 20px;
+            border: 1px solid #eee;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
+    <body>
+        <div class="wrapper">
+            <!-- die h1 soll je nach Uhrzeit "Guten Morgen", "Guten Tag" oder "Guten Abend" ausgeben, sobald die Seite aufgerufen wird -->
+            <h1 id="greet"></h1>
+        </div>
+    </body>
+    <script>
+        /* not implemented */
+        const date = new Date().getHours();
+        if (date < 12) {
+            document.getElementById("greet").innerHTML = "Guten Morgen";
+        } else if (date < 18 && date > 12) {
+            document.getElementById("greet").innerHTML = "Guten Mittag";
+        } else {
+            document.getElementById("greet").innerHTML = "Guten Abend";
+        }
+    </script>
+</html>
