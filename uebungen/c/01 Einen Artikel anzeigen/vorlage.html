@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Einen Artikel eines kleinen Online-Shops anzeigen</title>
+    </head>
+
+    <style>
+        dl {
+            border: 1px solid grey;
+            margin-bottom: 20px;
+            padding: 10px;
+        }
+    </style>
+
+    <body>
+        <main></main>
+    </body>
+
+    <script src="articles.js"></script>
+    <script>
+        articles
+            .sort((a, b) => a.price - b.price)
+            .map((article) => {
+                document.querySelector("main").innerHTML += `
+                <dl id="${article.name}""></dl>
+                `;
+                for (const key in article) {
+                    document.getElementById(article.name).innerHTML += `
+                    <dt>${key}</dt><dd>${article[key]}</dd>
+                    `;
+                }
+            });
+    </script>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
+<title>Artikel filtern und Preis aufsummieren</title>
+
+<main></main>
+
+<script src="articles.js"></script>
+<script>
+    // your code goes here
+    let fullPrice = 0;
+    articles
+        .filter((article) => article.type === "notebook")
+        .map((article) => {
+            console.log(article);
+            fullPrice += article.price;
+        });
+    console.log(fullPrice);
+</script>

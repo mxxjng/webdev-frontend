@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
+<title>Ein passendes Tablet finden</title>
+
+<main></main>
+
+<script src="articles.js"></script>
+<script>
+    // your code goes here
+    articles
+        .filter((article) => article.type === "tablet" && article.price < 400)
+        .map((article) => {
+            console.log(article);
+        });
+</script>

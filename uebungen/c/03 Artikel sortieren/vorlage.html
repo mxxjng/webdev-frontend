@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
+<title>Artikel sortieren</title>
+
+<main></main>
+
+<script src="articles.js"></script>
+<script>
+    // your code goes here
+    articles
+        .sort((a, b) => a.price - b.price)
+        .map((article) => {
+            document.querySelector("main").innerHTML += `
+                <dl id="${article.name}""></dl>
+                `;
+            for (const key in article) {
+                document.getElementById(article.name).innerHTML += `
+                    <dt>${key}</dt><dd>${article[key]}</dd>
+                    `;
+            }
+        });
+</script>
