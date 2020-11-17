@@ -3,12 +3,45 @@
 
 <script>
     // Your code goes here
-    
-    window.customElements.define('my-counter', MyCounter);
+    class MyCounter extends HTMLElement {
+        count = 0;
+
+        constructor() {
+            super();
+            this.addEventListener("click", (e) => {
+                this.count++;
+                this.render();
+            });
+        }
+
+        connectedCallback() {
+            this.render();
+        }
+
+        render() {
+            if (this.count < 2) {
+                this.innerText = `😐 ${this.count}`;
+            } else if (this.count >= 2 && this.count < 5) {
+                this.innerText = `🤔 ${this.count}`;
+            } else if (this.count >= 5 && this.count < 10) {
+                this.innerText = `🙂 ${this.count}`;
+            } else {
+                this.innerText = `😺 ${this.count}`;
+            }
+        }
+    }
+    window.customElements.define("my-counter", MyCounter);
 </script>
 
-<my-counter>blub</my-counter>
+<my-counter></my-counter>
 
 <style>
-    my-counter { display: inline-block; margin: 1em; padding: 7px 10px; font-size: 1.5em; background: lightgray; cursor: pointer; }
+    my-counter {
+        display: inline-block;
+        margin: 1em;
+        padding: 7px 10px;
+        font-size: 1.5em;
+        background: lightgray;
+        cursor: pointer;
+    }
 </style>

@@ -1,28 +1,64 @@
 <!DOCTYPE html>
-<meta charset=utf-8>
+<meta charset="utf-8" />
 <title>while vs. do-while</title>
 
 <script>
-  function validate() {
-    // Your code goes here
-  }
+    function validate() {
+        // Your code goes here
+        try {
+            const val = document.getElementById("inp").value;
+
+            if (!val) {
+                throw "Eingabe ist leer";
+            }
+
+            if (isNaN(val)) {
+                throw "Ist keine Nummer";
+            }
+
+            if (parseInt(val) < 5 || parseInt(val) > 10) {
+                throw "Falscher Wert";
+            }
+
+            document.getElementById("msg").innerHTML = val;
+        } catch (error) {
+            document.getElementById("msg").innerHTML = error;
+        } finally {
+            document.getElementById("inp").value = "";
+        }
+    }
 </script>
 
 <div class="wrapper">
-  <p>Please input a number between 5 and 10:</p>
-  <div class="input-wrapper">
-    <input id="inp" type="text">
-    <button type="button" onclick="validate()">Test Input</button>
-  </div>
+    <p>Please input a number between 5 and 10:</p>
+    <div class="input-wrapper">
+        <input id="inp" type="text" />
+        <button type="button" onclick="validate()">Test Input</button>
+    </div>
 
-  <p id="msg"></p>
+    <p id="msg"></p>
 </div>
 
 <style type="text/css">
-  body { min-height: 100vh;
-    display: flex; flex-direction: column; justify-content: center; align-items: center; }
-  .wrapper { padding: 20px; border: 1px solid #eee;
-    display: flex; flex-direction: column; align-items: center; }
-  .input-wrapper { display: flex; flex-direction: row; }
-  #msg { color: red; }
+    body {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .wrapper {
+        padding: 20px;
+        border: 1px solid #eee;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .input-wrapper {
+        display: flex;
+        flex-direction: row;
+    }
+    #msg {
+        color: red;
+    }
 </style>
