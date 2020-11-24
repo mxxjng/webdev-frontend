@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 <title>RegExp</title>
 
-<label>Matrikel-Nummer <input type=text placeholder="z.B. ab123" pattern="insert your pattern here"></label>
+<label
+    >Matrikel-Nummer
+    <input type="text" placeholder="z.B. ab123" pattern="^\w{2}\d{3,4}$"
+/></label>
 <style>
-    input:invalid { color: red; }
+    input:invalid {
+        color: red;
+    }
 </style>
 
 <pre>
@@ -11,10 +16,23 @@ Edward> Hey @Alice, have you seen #5791?
 Alice> No?
 Edward> Someone was really unhappy there. Thought it looked like #5717
 Alice> Yea, that's why I deleted it.
-Edward> What?!
+Edward> What?! @Edward
 Alice> I created the issue… at night… after a 10h bughunt.
 Edward> Oh, never mind
 </pre>
 <script>
     // Your code goes here
+    const text = document.querySelector("pre").innerText;
+    console.log(text);
+
+    const regex = /@\w+/;
+
+    console.log(text.replace(/(@\S+)/gi, '<a href="/users/UserName">$1</a>'));
+
+    const newtext = text.replace(
+        /(@\S+)/gi,
+        '<a href="/users/UserName">$1</a>'
+    );
+
+    document.querySelector("pre").innerHTML = newtext;
 </script>
