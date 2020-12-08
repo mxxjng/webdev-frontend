@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link
+            rel="stylesheet"
+            href="https://unpkg.com/marx-css/css/marx.min.css"
+        />
+        <style>
+            body {
+                margin-left: 20px;
+                background-color: rgb(240, 240, 240);
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Farbänderung bei MouseMove</h2>
+        <div
+            style="
+                position: relative;
+                left: 20px;
+                top: 100px;
+                width: 255px;
+                height: 255px;
+                background-color: rgb(230, 230, 230);
+            "
+            id="canvas"
+        >
+            <div
+                style="
+                    position: absolute;
+                    background-color: black;
+                    height: 10px;
+                    width: 10px;
+                "
+                id="innerfield"
+                ondrag="mouseDrag(event)"
+                draggable="true"
+            ></div>
+        </div>
+    </body>
+    <script>
+        let field = document.querySelector("#canvas");
+        let innerField = document.querySelector("#innerfield");
+
+        const mouseDrag = (event) => {
+            if (event.buttons === 1) {
+                innerField.style.left = `${event.x}px`;
+                innerField.style.top = `${event.y}px`;
+                field.style.backgroundColor = `rgb(${event.x}, 230, ${event.y})`;
+            } else {
+                console.log("not mousebutton 1");
+            }
+        };
+    </script>
+</html>

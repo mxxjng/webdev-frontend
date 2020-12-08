@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <textarea
+            onkeypress="addText(event)"
+            name="textarea"
+            id="txtarea"
+            cols="30"
+            rows="10"
+        ></textarea>
+        <button onclick="submit()">übernehmen</button>
+        <p id="text"></p>
+        <hr id="hr" />
+    </body>
+    <script>
+        const addText = (event) => {
+            document.getElementById("text").innerHTML += event.key;
+        };
+        const submit = () => {
+            // create and insert element
+            let newP = document.createElement("p");
+            let newContent = document.getElementById("text").innerHTML;
+            let newC = document.createTextNode(newContent);
+            let hr = document.getElementById("hr");
+            newP.appendChild(newC);
+            insertAfter(hr, newP);
+
+            // clear fields
+            document.getElementById("txtarea").value = "";
+            document.getElementById("text").innerHTML = "";
+        };
+
+        const insertAfter = (referenceNode, newNode) => {
+            referenceNode.parentNode.insertBefore(
+                newNode,
+                referenceNode.nextSibling
+            );
+        };
+    </script>
+</html>

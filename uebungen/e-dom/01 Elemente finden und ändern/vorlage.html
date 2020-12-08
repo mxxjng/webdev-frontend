@@ -1,23 +1,47 @@
 <!DOCTYPE html>
-<meta charset=utf-8>
+<meta charset="utf-8" />
 <title>Elemente finden und ändern</title>
 <style>
-  body { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; }
-  .wrapper { padding: 20px; border: 1px solid #eee; display: flex; flex-direction: column; align-items: center; }
-  .red-border { border: 2px solid red; }
-  img, input { width: 300px; margin: 10px; }
+    body {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .wrapper {
+        padding: 20px;
+        border: 1px solid #eee;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .red-border {
+        border: 2px solid red;
+    }
+    img,
+    input {
+        width: 300px;
+        margin: 10px;
+    }
 </style>
 
 <div class="wrapper">
-  <h1 id="title">irrezzistable</h1>
-  <p class="tribore">Tribore</p>
-  <img id="tribore" src="tribore.png">
-  <input value="" name="js-fill" placeholder="js-fill">
-  <p class="gary">Gary</p>
-  <img style="width: 500px" class="gary" src="gary.jpeg">
-  <input value="" name="dont-fill">
+    <h1 id="title">irrezzistable</h1>
+    <p class="tribore">Tribore</p>
+    <img id="tribore" src="tribore.png" />
+    <input value="" name="js-fill" placeholder="js-fill" />
+    <p class="gary">Gary</p>
+    <img style="width: 500px" class="gary" src="gary.jpeg" />
+    <input value="" name="dont-fill" />
 </div>
 
 <script>
-  // Your code goes here
+    let headline = document.querySelector("h1");
+    let triboreName = document.querySelector(".tribore");
+    let triboreImage = document.querySelector("#tribore");
+    let triboreInput = document.getElementsByName("js-fill")[0];
+    let garyName = document.querySelector("p.gary");
+    let garyImage = document.querySelector("img.gary");
+    let garyInput = document.getElementsByName("dont-fill")[0];
 </script>

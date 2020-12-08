@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link
+            rel="stylesheet"
+            href="https://unpkg.com/marx-css/css/marx.min.css"
+        />
+        <style>
+            body {
+                margin-left: 20px;
+                background-color: rgb(240, 240, 240);
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Farbänderung per Slider</h2>
+        <br />
+        <p>Blue:</p>
+        <input
+            type="range"
+            min="0"
+            max="255"
+            value="50"
+            style="display: block; box-sizing: border-box"
+            oninput="changeColor(event)"
+            id="slider-blue"
+        />
+        <span id="value-blue"></span>
+        <p>Green:</p>
+        <input
+            type="range"
+            min="0"
+            max="255"
+            value="50"
+            style="display: block; box-sizing: border-box"
+            oninput="changeColor(event)"
+            id="slider-green"
+        />
+        <span id="value-green"></span>
+        <p>Red:</p>
+        <input
+            type="range"
+            min="0"
+            max="255"
+            value="50"
+            style="display: block; box-sizing: border-box"
+            oninput="changeColor(event)"
+            id="slider-red"
+        />
+        <span id="value-red"></span>
+        <div
+            style="
+                width: 255px;
+                height: 255px;
+                background-color: rgb(230, 230, 230);
+            "
+            id="canvas"
+        ></div>
+    </body>
+    <script>
+        let field = document.querySelector("#canvas");
+        let rangeBlue = document.querySelector("#slider-blue");
+        let rangeGreen = document.querySelector("#slider-green");
+        let rangeRed = document.querySelector("#slider-red");
+        let colorBlue = 50;
+        let colorRed = 50;
+        let colorGreen = 50;
+
+        field.style.backgroundColor = `rgb(${parseFloat(
+            colorRed
+        )}, ${parseFloat(colorGreen)}, ${parseFloat(colorBlue)})`;
+        document.querySelector("#value-blue").innerHTML = colorBlue;
+        document.querySelector("#value-green").innerHTML = colorGreen;
+        document.querySelector("#value-red").innerHTML = colorRed;
+
+        const changeColor = (event, color) => {
+            colorGreen = rangeGreen.value;
+            colorBlue = rangeBlue.value;
+            colorRed = rangeRed.value;
+            field.style.backgroundColor = `rgb(${parseFloat(
+                colorRed
+            )}, ${parseFloat(colorGreen)}, ${parseFloat(colorBlue)})`;
+            document.querySelector("#value-blue").innerHTML = colorBlue;
+            document.querySelector("#value-green").innerHTML = colorGreen;
+            document.querySelector("#value-red").innerHTML = colorRed;
+        };
+    </script>
+</html>
