@@ -1,15 +1,39 @@
 <!DOCTYPE html>
-<meta charset=utf-8>
+<meta charset="utf-8" />
 <title>Elemente hinzufügen und ersetzen</title>
 <style>
-  body { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; }
-  .wrapper { padding: 20px; border: 1px solid #eee; display: flex; flex-direction: column; align-items: center; }
+    body {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .wrapper {
+        padding: 20px;
+        border: 1px solid #eee;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 </style>
 
 <div class="wrapper">
-  <div id="placeholder" style="width:300px; height:200px; background-color: aquamarine;"></div>
+    <div
+        id="placeholder"
+        style="width: 300px; height: 200px; background-color: aquamarine"
+    ></div>
 </div>
 
 <script>
-  // Your code goes here
+    let headline = document.createElement("h1");
+    let wrapper = document.getElementsByClassName("wrapper")[0];
+    let placeholder = document.getElementById("placeholder");
+    let image = document.createElement("img");
+
+    image.setAttribute("src", "./tribore.png");
+    headline.innerHTML = "Headline";
+    wrapper.appendChild(image);
+    wrapper.insertBefore(headline, placeholder);
+    wrapper.removeChild(placeholder);
 </script>

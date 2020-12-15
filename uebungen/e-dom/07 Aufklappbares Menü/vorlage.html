@@ -1,8 +1,56 @@
 <!DOCTYPE html>
-<meta charset=utf-8>
-<title>Aufklappbares Menu</title>
-<style>
-  .hidden { display: none; }
-</style>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Menu</title>
+    </head>
+    <style>
+        .nav {
+            transform: translateX(-100%);
+            transition: 0.4s;
+        }
 
-<!-- your code goes here -->
+        .open {
+            transform: translateX(0%);
+            transition: 0.4s;
+        }
+
+        .btn {
+            padding: 20px;
+            border-radius: 10px;
+            transition: 0.4s;
+        }
+
+        .btn-active {
+            background-color: blue;
+            color: white;
+            transition: 0.4s;
+        }
+    </style>
+    <body>
+        <button class="btn" id="btn" onclick="toggleMenu()">Open Menu</button>
+        <div id="nav" class="nav">
+            <ul>
+                <li>Nigiri</li>
+                <li>Maki</li>
+                <li>Gunkan</li>
+            </ul>
+        </div>
+    </body>
+    <script>
+        const toggleMenu = () => {
+            let nav = document.getElementById("nav");
+            let btn = document.getElementById("btn");
+            nav.classList.toggle("open");
+
+            if (nav.classList.contains("open")) {
+                btn.classList.add("btn-active");
+                btn.innerHTML = "Close Menu";
+            } else {
+                btn.classList.remove("btn-active");
+                btn.innerHTML = "Open Menu";
+            }
+        };
+    </script>
+</html>
