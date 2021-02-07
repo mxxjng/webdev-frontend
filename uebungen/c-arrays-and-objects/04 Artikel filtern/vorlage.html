@@ -6,13 +6,20 @@
 
 <script src="articles.js"></script>
 <script>
-    // your code goes here
-    let fullPrice = 0;
-    articles
-        .filter((article) => article.type === "notebook")
-        .map((article) => {
-            console.log(article);
-            fullPrice += article.price;
-        });
-    console.log(fullPrice);
+    const filteredNotebooks = articles.filter(
+        (article) => article.type === "notebook"
+    );
+
+    console.log(filteredNotebooks);
+
+    const notebookSum = filteredNotebooks.reduce(
+        (accum, currentVal) => accum + currentVal.price,
+        0
+    );
+
+    console.log(notebookSum);
+
+    const notebookName = filteredNotebooks.map((a) => a.name);
+
+    console.log(notebookName);
 </script>
