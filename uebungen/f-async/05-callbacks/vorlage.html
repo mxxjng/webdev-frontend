@@ -31,16 +31,18 @@
             console.log("Start");
 
             //simulate user login
-            function loginUser(email, passwort) {
+            function loginUser(email, passwort, callback) {
                 //simulate that the Login would take some time
                 setTimeout(() => {
                     console.log("now we have the data");
-                    return { userEmail: email };
+                    callback({ userEmail: email });
                 }, 1500);
             }
 
-            const user = loginUser("jane.doe@web.de", 12345);
-            console.log(user);
+            const user = loginUser("jane.doe@web.de", 12345, (user) => {
+                console.log(user);
+                alert(`user is: ${user.userEmail}`);
+            });
 
             console.log("End");
         </script>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <style type="text/css">
+      body {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .wrapper {
+        padding: 20px;
+        border: 1px solid #eee;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      img,
+      input {
+        width: 300px;
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      console.log('Start');
+
+      //simulate user login
+      function loginUser(email, passwort) {
+        //simulate that the Login would take some time
+        setTimeout(() => {
+          console.log('now we have the data');
+          return { userEmail: email };
+        }, 1500);
+      }
+
+      const user = loginUser('jane.doe@web.de', 12345);
+      console.log(user);
+
+      console.log('End');
+    </script>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<title>Miniübung: Zufällige Timer-Promises</title>
+
+<button id=all>Promise.all</button>
+<script>
+    document.getElementById('all').addEventListener('click', async event => {
+        const promise1 = new Promise((resolve, reject) => setTimeout(() => resolve(1), Math.random() * 1000))
+        const promise2 = new Promise((resolve, reject) => setTimeout(() => resolve(2), Math.random() * 1000))
+        const promise3 = new Promise((resolve, reject) => setTimeout(() => resolve(3), Math.random() * 1000))
+
+        const results = await Promise.all([promise1, promise2, promise3])
+        console.log('Promise.all', results)
+    })
+</script>
+
+<button id=race>Promise.race</button>
+<script>
+    document.getElementById('race').addEventListener('click', async event => {
+        const promise1 = new Promise((resolve, reject) => setTimeout(() => resolve(1), Math.random() * 1000))
+        const promise2 = new Promise((resolve, reject) => setTimeout(() => resolve(2), Math.random() * 1000))
+        const promise3 = new Promise((resolve, reject) => setTimeout(() => resolve(3), Math.random() * 1000))
+
+        const result = await Promise.race([promise1, promise2, promise3])
+        console.log('Promise.race', result)
+    })
+</script>

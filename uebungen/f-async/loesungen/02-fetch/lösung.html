@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<title>Miniübung: Taschenrechner mit fetch und await</title>
+
+<p>
+    <input type=number id=zahl1>
+    <select id=op>
+        <option>+</option>
+        <option>-</option>
+        <option>*</option>
+        <option>/</option>
+    </select>
+    <input type=number id=zahl2>
+    =
+    <output id=ergebnis></output>
+</p>
+<script>
+    document.getElementById('zahl1').addEventListener('input', calculate)
+    document.getElementById('zahl2').addEventListener('input', calculate)
+    document.getElementById('op').addEventListener('input', calculate)
+
+    async function calculate() {
+        const res = await fetch('http://foo.mi.hdm-stuttgart.de:81/WDF/ajax_calculator_post', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                zahl1: document.getElementById('zahl1').value,
+                op:    document.getElementById('op').value,
+                zahl2: document.getElementById('zahl2').value
+            })
+        })
+        document.getElementById('ergebnis').innerText = await res.text()
+    }
+</script>

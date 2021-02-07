@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<title>Miniübung: Taschenrechner auf Server</title>
+
+<p>
+    <input type=number id=zahl1>
+    <select id=op>
+        <option>+</option>
+        <option>-</option>
+        <option>*</option>
+        <option>/</option>
+    </select>
+    <input type=number id=zahl2>
+    =
+    <output id=ergebnis></output>
+</p>
+<script>
+    document.getElementById('zahl1').addEventListener('input', calculate)
+    document.getElementById('zahl2').addEventListener('input', calculate)
+    document.getElementById('op').addEventListener('input', calculate)
+
+    const req = new XMLHttpRequest()
+    function calculate() {
+        req.open('POST', 'http://foo.mi.hdm-stuttgart.de:81/WDF/ajax_calculator_post')
+        req.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+        req.onreadystatechange = event => {
+            if (req.readyState == 4)
+                document.getElementById('ergebnis').innerText = req.responseText
+        }
+        
+        const data = new URLSearchParams({
+            zahl1: document.getElementById('zahl1').value,
+            op:    document.getElementById('op').value,
+            zahl2: document.getElementById('zahl2').value
+        }).toString()
+        req.send(data)
+    }
+</script>
